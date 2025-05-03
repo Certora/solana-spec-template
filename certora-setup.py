@@ -150,7 +150,7 @@ def main():
 
     if args.execute:
         # delete .git directory
-        git_dir = ".git"
+        git_dir = Path(".git")
         if git_dir.exists() and git_dir.is_dir():
             try:
                 shutil.rmtree(git_dir)
