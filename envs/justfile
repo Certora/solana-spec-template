@@ -22,9 +22,13 @@ anchor_summaries_cfg := certora-scripts  / "cvlr_summaries_anchor.txt"
 package_summaries_cfg := certora-scripts  / "cvlr_summaries_package.txt"
 summaries_cfg := certora-scripts  / "cvlr_summaries.txt"
 
+
 refresh:
   # download core and anchor files
-  #curl -o filename raw-link-to-file
+  curl -o  cvlr_inlining_anchor.txt https://raw.githubusercontent.com/Certora/solana-spec-template/refs/heads/main/envs/cvlr_inlining_anchor.txt
+  curl -o  cvlr_summaries_anchor.txt https://raw.githubusercontent.com/Certora/solana-spec-template/refs/heads/main/envs/cvlr_summaries_anchor.txt
+  curl -o  cvlr_inlining_core.txt https://raw.githubusercontent.com/Certora/solana-spec-template/refs/heads/main/envs/cvlr_inlining_core.txt
+  curl -o  cvlr_summaries_core.txt https://raw.githubusercontent.com/Certora/solana-spec-template/refs/heads/main/envs/cvlr_summaries_core.txt
 
 make-header:
   printf %s "$HEADER" > {{ inliner_cfg }}
