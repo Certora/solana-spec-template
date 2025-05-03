@@ -16,7 +16,7 @@ For example, if your package is in `WORKSPACE_ROOT/programs/contract`:
 
 ```sh
 cd WORKSPACE_ROOT/programs/contract/src
-git clone https://github.com/Certora/certora-solana-spec-template certora
+git clone https://github.com/Certora/solana-spec-template certora
 ```
 
 ### 2. Run the Setup Script
@@ -24,6 +24,7 @@ git clone https://github.com/Certora/certora-solana-spec-template certora
 Use the provided setup script to configure the specifications for your workspace and package.
 
 ```sh
+cd certora
 python certora-setup.py --workspace WORKSPACE_ROOT --package-name contract
 ```
 

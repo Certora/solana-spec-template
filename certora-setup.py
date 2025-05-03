@@ -158,9 +158,9 @@ def main():
             except Exception as e:
                 logging.error(f"Failed to delete {git_dir}: {e}")
                 sys.exit(1)
-
-    logging.info(
-        "Execution flag not set. No files have been changed. Run with --execute option.")
+    else:
+        logging.info(
+            "Execution flag not set. No files have been changed. Run with --execute option.")
 
 
 if __name__ == "__main__":
