@@ -2,7 +2,7 @@
 ## This script is intended to be run only once during the project setup
 ##------------------------------------------------------------------------##
 
-certora-scripts := "."
+import "cvlr_envs.just"
 
 export HEADER := '''
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -11,17 +11,6 @@ export HEADER := '''
 ;;
 ;;
 '''
-
-core_inliner_cfg := certora-scripts  / "cvlr_inlining_core.txt"
-anchor_inliner_cfg := certora-scripts  / "cvlr_inlining_anchor.txt"
-package_inliner_cfg := certora-scripts  / "cvlr_inlining_package.txt"
-inliner_cfg   := certora-scripts  / "cvlr_inlining.txt"
-
-core_summaries_cfg := certora-scripts  / "cvlr_summaries_core.txt"
-anchor_summaries_cfg := certora-scripts  / "cvlr_summaries_anchor.txt"
-package_summaries_cfg := certora-scripts  / "cvlr_summaries_package.txt"
-summaries_cfg := certora-scripts  / "cvlr_summaries.txt"
-
 
 refresh:
   # download core and anchor files
