@@ -4,6 +4,7 @@
 
 import "build.just"
 import "certoraSolanaProver.just"
+import "../envs/cvlr_envs.just"
 
 # java executable
 export JAVA := env_var_or_default("JAVA", "java")
