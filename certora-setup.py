@@ -98,8 +98,8 @@ optional = true
 
 [package.metadata.certora]
 sources = [ "src/**/*.rs" ]
-solana_inlining = [ "src/certora/envs/solana_inlining.txt" ]
-solana_summaries = [ "src/certora/envs/solana_summaries.txt" ]
+solana_inlining = [ "src/certora/envs/cvlr_inlining.txt" ]
+solana_summaries = [ "src/certora/envs/cvlr_summaries.txt" ]
    '''
     extend_file(toml_file_path, toml_extra_content, execute=execute)
 
