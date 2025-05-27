@@ -1,4 +1,4 @@
-certora-scripts := "."
+certora-scripts := source_directory()
 
 core_inliner_cfg := certora-scripts  / "cvlr_inlining_core.txt"
 anchor_inliner_cfg := certora-scripts  / "cvlr_inlining_anchor.txt"
