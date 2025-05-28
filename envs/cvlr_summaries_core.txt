@@ -23,6 +23,15 @@
 #[type(r0:num)]
 ^__divdf3$
 
+#[type(r0:num)]
+^__gedf2$
+
+#[type(r0:num)]
+^__gtdf2$
+
+#[type(r0:num)]
+^__floatundidf$
+
 ;; %"AccountInfo" = type { %"Pubkey"*, i64*, i64*, %"Pubkey"*, i64, i8, i8, i8, [5 x i8] }
 #[type((*i64)(r1+0):ptr_external)]
 #[type((*i64)(r1+8):ptr_external)]
