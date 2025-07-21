@@ -12,6 +12,8 @@ export HEADER := '''
 ;;
 '''
 
+rebuild: refresh build
+
 refresh:
   # download core and anchor files
   curl -o  cvlr_inlining_anchor.txt https://raw.githubusercontent.com/Certora/solana-spec-template/refs/heads/main/envs/cvlr_inlining_anchor.txt
@@ -33,7 +35,6 @@ clean:
 
 build: make-envs
 
-rebuild: refresh build
 
 
 
