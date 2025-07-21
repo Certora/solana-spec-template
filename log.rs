@@ -1,1 +1,1 @@
-/// Implementation for cvlr::log::CvlrLog trait
+//! Implementation for cvlr::log::CvlrLog trait
