@@ -10,6 +10,8 @@ import "../envs/cvlr_envs.just"
 export JAVA := env_var_or_default("JAVA", "java")
 # optimization level, 0 by default
 export TAC_OPT_LEVEL := env_var_or_default("TAC_OPT_LEVEL", "0")
+# sanity check level: none, basic, advanced (none by default)
+export SANITY_CHECKS := env_var_or_default("SANITY_CHECKS", "none")
 
 # location of prover jar
 emv_jar := "$CERTORA/emv.jar"
@@ -32,6 +34,7 @@ verify RULE *OPTS: build-sbf
 		-solanaOptimisticMemcmp true \
 		-solanaOptimisticNoMemmove true \
 		-solanaAggressiveGlobalDetection true \
+		-solanaStackSize 8192 \
 		-solanaSlicerIter 6 \
 		-solanaEnablePTAPseudoCanonicalize false \
 		-solanaRemoveCFGDiamonds true \
@@ -40,35 +43,7 @@ verify RULE *OPTS: build-sbf
 		-solanaPrintAnalyzedToDot \
 		-solanaTACMathInt true \
 		-solanaTACOptimize ${TAC_OPT_LEVEL} \
-		-solanaStackSize 8192 \
-		-solanaEntrypoint {{ RULE }} \
-		{{ OPTS }} 
-
-# Usage: vacuity name_of_rule extra_options
-vacuity RULE *OPTS: (build-sbf "certora-vacuity") 
-		mkdir -p certora_out
-		cd certora_out && ${JAVA} -ea -Xmx8g \
-		-Dtopic.spec -Dlevel.sbf=${CERTORA_VERBOSE:-info} \
-		-Dverbose.times -Dcvt.simple.parallel -Djava.awt.headless=true \
-		-jar {{ emv_jar }} \
-		-deleteSMTFile false -graphDrawLimit 2000 \
-		{{ sbf_file }} \
-		-solanaInlining {{ inliner_cfg }} \
-		-solanaSummaries {{ summaries_cfg }} \
-		-solanaOptimisticJoin true \
-		-solanaOptimisticOverlaps true \
-		-solanaOptimisticMemcpyPromotion true \
-		-solanaOptimisticMemcmp true \
-		-solanaOptimisticNoMemmove true \
-		-solanaAggressiveGlobalDetection true \
-		-solanaSlicerIter 6 \
-		-solanaEnablePTAPseudoCanonicalize false \
-		-solanaRemoveCFGDiamonds true \
-		-solanaPrintDevMsg true \
-		-solanaSkipCallRegInst true \
-		-solanaPrintAnalyzedToDot \
-		-solanaTACOptimize ${TAC_OPT_LEVEL} \
-		-solanaStackSize 8192 \
-		-solanaEntrypoint {{ RULE }} \
+		-ruleSanityChecks ${SANITY_CHECKS} \
+		-rule {{ RULE }} \
 		{{ OPTS }} 
 
