@@ -149,3 +149,5 @@
 ;; We need to inline this function to avoid unsoundness results in
 ;; NcnOperatorTicket::seeds and others.
 #[inline] ^<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(_\d+)?$
+
+#[inline] ^<alloc::boxed::Box<T,A> as core::clone::Clone>::clone$

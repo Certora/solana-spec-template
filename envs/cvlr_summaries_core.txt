@@ -103,5 +103,5 @@
 #[type((*i64)(r1+16):num)]
 ^alloc::fmt::format::format_inner$
 
-
-
+#[type(r0:ptr_heap)]
+^std::io::error::Error::new(_\d+)?$
