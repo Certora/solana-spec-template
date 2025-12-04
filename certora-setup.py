@@ -121,6 +121,8 @@ def main():
                         help='Execute the setup steps')
     parser.add_argument('--package-name', type=str,
                         required=True, help='Name of the package')
+    parser.add_argument('--install-certora-build', action='store_true',
+                        help='Install the certora_build.py script')
 
     args = parser.parse_args()
 
@@ -145,7 +147,10 @@ def main():
                           args.package_name, package_path, execute=args.execute)
     extend_workspace_toml(workspace_toml, execute=args.execute)
     extend_package_toml(package_toml, execute=args.execute)
-    install_certora_build(package_path, execute=args.execute)
+
+    if args.install_certora_build:
+        install_certora_build(package_path, execute=args.execute)
+
     extend_git_ignore(workspace_path / '.gitignore', execute=args.execute)
 
     if args.execute:
