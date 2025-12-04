@@ -33,6 +33,7 @@ verify RULE *OPTS: build-sbf
 		-solanaOptimisticMemcpyPromotion true \
 		-solanaOptimisticMemcmp true \
 		-solanaOptimisticNoMemmove true \
+		-solanaOptimisticJoinWithStackPtr true \
 		-solanaAggressiveGlobalDetection true \
 		-solanaStackSize 8192 \
 		-solanaSlicerIter 6 \
