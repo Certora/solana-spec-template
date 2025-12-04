@@ -38,7 +38,7 @@
 #[inline] ^anchor_lang::error::<impl core::convert::From<anchor_lang::error::ErrorCode> for u32>::from$
 #[inline] ^squads_multisig_program::errors::<impl core::convert::From<squads_multisig_program::errors::MultisigError> for anchor_lang::error::Error>::from$
 
-;;; new
 #[inline] ^<.+ as anchor_lang::AccountDeserialize>::try_deserialize$
 #[inline] ^<.+ as anchor_lang::AccountDeserialize>::try_deserialize_unchecked$
 #[inline] ^anchor_lang::accounts::interface_account::InterfaceAccount<T>::try_from(_\d+)?$
+
